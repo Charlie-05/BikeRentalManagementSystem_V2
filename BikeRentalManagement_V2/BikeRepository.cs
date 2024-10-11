@@ -16,7 +16,8 @@ namespace BikeRentalManagement_V2
             Console.WriteLine("Enter Bike ID");
             string BikeID = (Console.ReadLine());
             Console.WriteLine("Enter Bike Brand");
-            string Brand = Console.ReadLine();
+            string input = Console.ReadLine();
+            string Brand = CapitalizeBrand(input);
             Console.WriteLine("Enter Bike Model");
             string Model = Console.ReadLine();
             Console.WriteLine("Enter Rental Price");
@@ -180,6 +181,13 @@ namespace BikeRentalManagement_V2
                 return ;
             }
 
+        }
+
+        public string CapitalizeBrand(string name)
+        {
+            var firstLetter = name.Substring(0, 1);
+            var remaining = name.Substring(1 , name.Length - 1);
+            return $"{firstLetter.ToUpper()}{remaining}";
         }
     }
 }
